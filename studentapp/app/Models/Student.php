@@ -9,6 +9,11 @@ class Student extends Model
 {
     use HasFactory;
 
-    // Allow mass assignment for these fields
-    protected $fillable = ['fname', 'lname', 'email'];
+    protected $fillable = ['fname', 'lname', 'email']; 
+
+    
+    public function courses()
+    {
+        return $this->belongsToMany(\App\Models\Course::class);
+    }
 }

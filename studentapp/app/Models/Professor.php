@@ -7,8 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Professor extends Model
 {
-    /** @use HasFactory<\Database\Factories\ProfessorFactory> */
     use HasFactory;
 
-    protected $fillable = ['name']; // Allow mass assignment for name
+    protected $fillable = ['name']; 
+
+    
+    public function course()
+    {
+        return $this->hasOne(\App\Models\Course::class);
+    }
 }

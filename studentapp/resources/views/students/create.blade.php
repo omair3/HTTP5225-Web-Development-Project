@@ -38,6 +38,14 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
+            <div class="mb-3">
+                <label for="courses" class="form-label">Select Courses</label>
+                <select name="courses[]" id="courses" class="form-control" multiple>
+                    @foreach ($courses as $course)
+                        <option value="{{ $course->id }}" {{ in_array($course->id, old('courses', [])) ? 'selected' : '' }}>{{ $course->name }}</option>
+                    @endforeach
+                </select>
+            </div>
             <button type="submit" class="btn btn-primary">Save</button>
         </form>
     </div>
